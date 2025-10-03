@@ -70,14 +70,14 @@ function AddNewNote(data){
           <p>${note.note}</p>
           <button onclick="ChangeStatu(this)"></button>
           <span>${note.dateCreation}</span>
-          <bitton class="btn-delete" onclick="deleteNote(this)"><i class="bi bi-trash"></i></button>
+          <p class="btn-delete" onclick="deleteNote(this)"><i class="bi bi-trash"></i></p>
        </div>`;
     noteContainer.innerHTML+=htmlNote;
   });
 };
 //^ event : Add note to the DOM and update counters 
-addNoteBtn.addEventListener('click',function (){
- 
+addNoteBtn.addEventListener('click',function (e){
+   e.preventDefault()
   let text=textarea.value;
   let newobjnote=CreatObjInfoNote(text);
   if(!newobjnote){
@@ -125,9 +125,11 @@ search_inp.addEventListener("input",()=>{
 
 //*<------------ Function : restore data   ------------->
 function restoreData() {
-  data = JSON.parse(localStorage.getItem("my_notes"));
+  let saved = localStorage.getItem("my_notes");
+  data = saved ? JSON.parse(saved) : [];
   AddNewNote(data);
 }
+
 restoreData();
 
 //*<------------ Function :  supprimer  note    ------------->
