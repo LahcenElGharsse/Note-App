@@ -270,7 +270,7 @@ body {
 }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (min-width: 281px) {
   .container {
     max-width: 100%;
   }
@@ -288,6 +288,11 @@ body {
   }
   .buttons_bar {
     flex-wrap: wrap;
+    gap: 10px;
+    .btn-yellow {
+      margin: auto;
+    }
+
   }
 .search_bar{
   flex-wrap: wrap;
@@ -297,4 +302,23 @@ body {
 
 
 }
+}
+@media (max-width: 280px) {
+    .form textarea {
+        width: 100%;
+    }
+    .form button {
+        width: 100%;
+        margin: auto;
+    }
+    .buttons_bar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .search_bar{
+        flex-wrap: wrap;
+    }
+    .search_bar input{
+        width: 100%;
+    }
 }
